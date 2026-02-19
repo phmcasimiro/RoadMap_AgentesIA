@@ -19,12 +19,18 @@ from enum import Enum
 from dotenv import load_dotenv
 import google.generativeai as genai
 
-# Carrega variáveis de ambiente
-load_dotenv()
+# Define diretório base do script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Carrega variáveis de ambiente (procura .env na raiz do projeto, um nível acima)
+dotenv_path = os.path.join(BASE_DIR, "..", ".env")
+load_dotenv(dotenv_path)
 
 # Configura Gemini
 if not os.getenv("GOOGLE_API_KEY"):
-    raise ValueError("GOOGLE_API_KEY não encontrada no arquivo .env")
+    raise ValueError(
+        f"GOOGLE_API_KEY não encontrada no arquivo .env (buscado em: {dotenv_path})"
+    )
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -292,7 +298,9 @@ async def main():
     print(f"- Tokens estimados: {agente.tokens_estimados}")
 
     # Salva conversa
-    agente.salvar_conversa("minha_conversa.json")
+    # Salva conversa no diretório da aula
+    json_path = os.path.join(BASE_DIR, "minha_conversa.json")
+    agente.salvar_conversa(json_path)
 
     print("=" * 50)
 
