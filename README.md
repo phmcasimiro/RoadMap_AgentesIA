@@ -9,6 +9,23 @@
 - APIs REST e GraphQL
 - Manipulação de arquivos JSON/YAML
 
+#### Material Didático e Exercícios
+1. FundamentosPythonIA.ipynb
+2. TypeHints&Docs.md
+3. GerenciamentoContexto.md
+4. ProgramacaoAssincrona.md
+5. DecoradoresAgentesIA.md
+6. main_A1.py (Simulação de Chat com Agente de IA Básico)
+
+#### Visão Geral doAssistente de IA N1
+
+No script `main_A1.py` foi criado um agente que, a partir de ferramentas (calcular e buscar), utiliza a API do Google Gemini para gerar respostas.
+
+- **Biblioteca:** Uso da google.generativeai.
+- **Modelo:** Configurado para usar gemini-2.0-flash.
+- **Autenticação:** Carregamento seguro da chave de API via .env
+- **Lógica:** O método `processar_mensagem` envia o histórico e o contexto das ferramentas para o Gemini, que gera a resposta final em linguagem natural.
+
 ### **2. Inteligência Artificial e Machine Learning**
 - Conceitos básicos de ML
 - Modelos de linguagem (LLMs)

@@ -18,7 +18,7 @@
   - A IDE vai ajudar MUITO mais com type hints
 
 ```python
-# ❌ Código sem type hints
+# Código sem type hints
 def processar(msg, hist, temp):
     pass
 ```
@@ -166,15 +166,15 @@ print(f"Ferramentas do Agente 1: {agente1.ferramentas}")
 print(f"\nAgente 2 como dict:")
 print(agente2.to_dict())
 
-# ❌ Testando validação (vai dar erro!)
+# Testando validação (vai dar erro!)
 try:
     agente_invalido = Agente(
         nome="Agente Inválido",
         ferramentas=["tool1"],
-        temperatura=1.5  # ❌ Maior que 1!
+        temperatura=1.5  # Maior que 1!
     )
 except ValueError as e:
-    print(f"\n❌ Erro capturado: {e}")
+    print(f"\nErro capturado: {e}")
     # Temperatura deve estar entre 0 e 1. Recebido: 1.5
 ```
 
